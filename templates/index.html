@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Öztürk İletişim Teknik</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet"
+href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+</head>
+
+<body>
+
+    <!-- Menü -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+        <div class="container">
+
+           <a class="navbar-brand d-flex align-items-center" href="#">
+
+    <img src="{{ url_for('static', filename='images/logo.png') }}"
+         alt="Öztürk İletişim Teknik"
+         class="logo">
+
+    <span class="ms-2 fw-bold text-info">
+        Öztürk İletişim Teknik
+    </span>
+
+</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Ana Sayfa</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Hizmetler</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">İletişim</a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+
+        <div class="container text-center">
+<img src="{{ url_for('static', filename='images/logo.png') }}"
+     class="hero-logo"
+     alt="Öztürk İletişim Teknik">
+            <h1>Öztürk İletişim Teknik</h1>
+
+            <p>
+                Telefon • Tablet • Bilgisayar Teknik Servisi
+            </p>
+
+            <div class="mt-4">
+
+                <a href="tel:05466545264" class="btn btn-primary btn-lg me-3">
+                    📞 Hemen Ara
+                </a>
+
+                <a href="https://wa.me/905466545264"
+                    target="_blank"
+                    class="btn btn-success btn-lg">
+
+                    💬 WhatsApp
+
+                </a><a href="/takip" class="btn btn-warning btn-lg ms-3">
+    🔍 Servis Takip
+</a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Hizmetler -->
+
+    <section id="services" class="container py-5">
+
+    <h2 class="text-center text-info mb-5">
+        Hizmetlerimiz
+    </h2>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+           <div class="service-card" data-aos="zoom-in">
+                <div class="icon">📱</div>
+                <h3>Telefon Tamiri</h3>
+                <p>Ekran, batarya, kamera, şarj soketi ve anakart onarımı.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="service-card" data-aos="zoom-in">
+                <div class="icon">💻</div>
+                <h3>Bilgisayar Tamiri</h3>
+                <p>SSD yükseltme, format, fan temizliği ve donanım onarımı.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="service-card" data-aos="zoom-in">
+                <div class="icon">📲</div>
+                <h3>Tablet Tamiri</h3>
+                <p>Dokunmatik ekran, batarya ve yazılım işlemleri.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="service-card" data-aos="zoom-in">
+                <div class="icon">⌚</div>
+                <h3>Akıllı Saat</h3>
+                <p>Cam değişimi, batarya ve yazılım sorunları.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="service-card" data-aos="zoom-in">
+                <div class="icon">🎮</div>
+                <h3>Oyun Konsolu</h3>
+                <p>PlayStation ve Xbox bakım ve onarımı.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="service-card" data-aos="zoom-in">
+                <div class="icon">🛠️</div>
+                <h3>Teknik Destek</h3>
+                <p>Yazılım kurulumu, veri kurtarma ve genel bakım.</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<section class="container py-5">
+
+    <h2 class="text-center text-info mb-5">
+        Desteklediğimiz Markalar
+    </h2>
+
+    <div class="row text-center g-4">
+
+        <div class="col-6 col-md-3">
+            <div class="service-card">
+                <h3>🍎 Apple</h3>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+            <div class="service-card">
+                <h3>📱 Samsung</h3>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+            <div class="service-card">
+                <h3>📲 Xiaomi</h3>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+            <div class="service-card">
+                <h3>💻 HP</h3>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Neden Biz -->
+
+<section class="why-us py-5">
+
+    <div class="container">
+
+        <h2 class="text-center text-info mb-5">
+            Neden Öztürk İletişim?
+        </h2>
+
+        <div class="row text-center">
+
+            <div class="col-md-3 mb-4">
+                <div class="why-card" data-aos="fade-up">
+                    <h1>⚡</h1>
+                    <h4>Hızlı Servis</h4>
+                    <p>Aynı gün içerisinde birçok tamir işlemini teslim ediyoruz.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
+                <div class="why-card" data-aos="fade-up">
+                    <h1>🛡️</h1>
+                    <h4>Garantili İşlem</h4>
+                    <p>Yapılan işlemler güvence altındadır.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
+                <div class="why-card" data-aos="fade-up">
+                    <h1>💎</h1>
+                    <h4>Kaliteli Parça</h4>
+                    <p>Kaliteli ve güvenilir yedek parçalar kullanıyoruz.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
+                <div class="why-card" data-aos="fade-up">
+                    <h1>😊</h1>
+                    <h4>Müşteri Memnuniyeti</h4>
+                    <p>Her müşterimize özenle hizmet veriyoruz.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- İstatistikler -->
+
+<section class="stats">
+
+    <div class="container">
+
+        <div class="row text-center">
+
+            <div class="col-md-3">
+                <div class="stat-box">
+                    <h1 class="counter" data-target="5000">0</h1>
+                    <p>Tamamlanan Tamir</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="stat-box">
+                    <h1 class="counter" data-target="10">0</h1>
+                    <p>Yıllık Deneyim</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="stat-box">
+                    <h1 class="counter" data-target="98">0</h1>
+                    <p>Müşteri Memnuniyeti (%)</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="stat-box">
+                    <h1>7/24</h1>
+                    <p>Teknik Destek</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- Müşteri Yorumları -->
+
+<section class="reviews py-5">
+
+    <div class="container">
+
+        <h2 class="text-center text-info mb-5">
+            Müşteri Yorumları
+        </h2>
+
+        <div class="row">
+
+            <div class="col-md-4 mb-4">
+
+                <div class="review-card" data-aos="flip-left">
+
+                    <h3>⭐⭐⭐⭐⭐</h3>
+
+                    <p>
+                        Telefonumun ekranı kısa sürede değiştirildi.
+                        İşçilik gerçekten çok kaliteli.
+                    </p>
+
+                    <h5>- Ahmet Y.</h5>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4 mb-4">
+
+                <div class="review-card" data-aos="flip-left">
+
+                    <h3>⭐⭐⭐⭐⭐</h3>
+
+                    <p>
+                        Bilgisayarım çok yavaş çalışıyordu.
+                        SSD yükseltmesi sonrası inanılmaz hızlandı.
+                    </p>
+
+                    <h5>- Mehmet K.</h5>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4 mb-4">
+
+                <div class="review-card" data-aos="flip-left">
+
+                    <h3>⭐⭐⭐⭐⭐</h3>
+
+                    <p>
+                        Güler yüzlü hizmet ve uygun fiyat.
+                        Kesinlikle tavsiye ederim.
+                    </p>
+
+                    <h5>- Ayşe D.</h5>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- Galeri -->
+
+<section class="container py-5">
+
+    <h2 class="text-center text-info mb-5">
+        Tamir Galerimiz
+    </h2>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <img src="{{ url_for('static', filename='images/galeri1.png') }}"
+                 class="img-fluid rounded shadow gallery-img">
+        </div>
+
+        <div class="col-md-4">
+            <img src="{{ url_for('static', filename='images/galeri2.png') }}"
+                 class="img-fluid rounded shadow gallery-img">
+        </div>
+
+        <div class="col-md-4">
+            <img src="{{ url_for('static', filename='images/galeri3.png') }}"
+                 class="img-fluid rounded shadow gallery-img">
+        </div>
+
+    </div>
+
+</section>
+<!-- Markalar -->
+
+<section class="brands py-5">
+
+    <div class="container">
+
+        <h2 class="text-center text-info mb-5">
+            Desteklediğimiz Markalar
+        </h2>
+
+        <div class="row text-center g-4">
+
+            <div class="col-6 col-md-3">
+                <div class="brand-card">
+                    🍎
+                    <h5>Apple</h5>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="brand-card">
+                    📱
+                    <h5>Samsung</h5>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="brand-card">
+                    🤖
+                    <h5>Xiaomi</h5>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="brand-card">
+                    🔵
+                    <h5>Huawei</h5>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- Arıza Kayıt -->
+
+<section class="container py-5">
+
+    <h2 class="text-center text-info mb-5">
+        Online Arıza Kayıt Formu
+    </h2>
+
+    <form method="POST" action="/kayit">
+
+        <div class="row">
+
+            <div class="col-md-6 mb-3">
+                <input type="text"
+                       class="form-control"
+                       name="ad"
+                       placeholder="Ad Soyad"
+                       required>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <input type="tel"
+                       class="form-control"
+                       name="telefon"
+                       placeholder="Telefon Numaranız"
+                       required>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <input type="text"
+                       class="form-control"
+                       name="marka"
+                       placeholder="Cihaz Markası">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <input type="text"
+                       class="form-control"
+                       name="model"
+                       placeholder="Cihaz Modeli">
+            </div>
+
+            <div class="col-12 mb-3">
+                <textarea class="form-control"
+                          rows="5"
+                          name="ariza"
+                          placeholder="Arızayı Yazınız"></textarea>
+            </div>
+
+            <div class="text-center">
+
+                <button class="btn btn-primary btn-lg">
+                    Kaydı Gönder
+                </button>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</section>
+    <!-- İletişim -->
+
+   <section id="contact" class="container py-5">
+
+    <h2 class="text-center text-info mb-5">
+        Bize Ulaşın
+    </h2>
+
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <h4>📍 Adres</h4>
+
+            <p>
+                Kayabaşı Mahallesi<br>
+                Cumhuriyet Caddesi No:13<br>
+                Haymana / Ankara
+            </p>
+
+            <h4>📞 Telefon</h4>
+
+            <p>0546 654 52 64</p>
+
+            <a href="tel:05466545264" class="btn btn-primary">
+                Hemen Ara
+            </a>
+
+            <a href="https://wa.me/905466545264"
+               target="_blank"
+               class="btn btn-success">
+
+                WhatsApp
+
+            </a>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <iframe
+            src="https://www.google.com/maps?q=Kayabaşı+Cumhuriyet+Caddesi+No+13+Haymana+Ankara&output=embed"
+            width="100%"
+            height="350"
+            style="border:0;border-radius:15px;"
+            loading="lazy">
+            </iframe>
+
+        </div>
+
+    </div>
+
+</section>
+    <!-- Footer -->
+
+    <footer class="text-center py-4 bg-dark">
+
+        <p class="mb-0">
+            © 2026 Öztürk İletişim Teknik | Tüm Hakları Saklıdır.
+        </p>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<a href="https://wa.me/905466545264"
+   class="whatsapp"
+   target="_blank">
+
+💬
+
+</a>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init({
+    duration:1000,
+    once:true
+});
+</script>
+</body>
+
+</html>

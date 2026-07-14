@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Yönetim Paneli</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body{
+    background:#0f172a;
+    color:white;
+}
+
+.card{
+    background:#1e293b;
+    border:none;
+    border-radius:20px;
+}
+
+.table{
+    border-radius:15px;
+    overflow:hidden;
+}
+
+h1{
+    color:#38bdf8;
+}
+
+.btn-danger{
+    border-radius:10px;
+}
+
+.btn-warning{
+    border-radius:10px;
+}
+
+.stat-card{
+
+    background:#1e293b;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    text-align:center;
+
+    transition:.4s;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 0 25px rgba(0,183,255,.4);
+
+}
+
+.stat-card h2{
+
+    color:#38bdf8;
+
+    font-size:45px;
+
+}
+
+.stat-card p{
+
+    color:#cbd5e1;
+
+    font-size:18px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+<h1 class="mb-4">
+📱 Öztürk İletişim Teknik Yönetim Paneli
+</h1>
+
+<div class="row mb-4">
+
+<div class="col-md-4">
+
+<div class="stat-card">
+
+<h2>{{ kayitlar|length }}</h2>
+
+<p>Toplam Kayıt</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="stat-card">
+
+<h2>7/24</h2>
+
+<p>Teknik Destek</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="stat-card">
+
+<h2>100%</h2>
+
+<p>Müşteri Memnuniyeti</p>
+
+</div>
+
+</div>
+
+</div>
+<form class="mb-4">
+
+<div class="input-group">
+
+<input
+type="text"
+name="ara"
+class="form-control"
+placeholder="Ad, Telefon, Marka veya Model Ara">
+
+<button class="btn btn-info">
+
+🔍 Ara
+
+</button>
+
+</div>
+
+</form>
+<div class="card p-4">
+
+<table class="table table-dark table-hover align-middle">
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+
+<th>Ad Soyad</th>
+
+<th>Telefon</th>
+
+<th>Marka</th>
+
+<th>Model</th>
+
+<th>Arıza</th>
+<th>Durum</th>
+<th>İşlem</th>
+
+<th>Ücret</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for k in kayitlar %}
+
+<tr>
+
+<td>{{ k[0] }}</td>
+
+<td>{{ k[1] }}</td>
+
+<td>{{ k[2] }}</td>
+
+<td>{{ k[3] }}</td>
+
+<td>{{ k[4] }}</td>
+
+<td>{{ k[5] }}</td>
+<td>{% if k[6] == "Beklemede" %}
+        <span class="badge bg-warning text-dark">Beklemede</span>
+
+    {% elif k[6] == "Tamirde" %}
+        <span class="badge bg-primary">Tamirde</span>
+
+    {% elif k[6] == "Hazır" %}
+        <span class="badge bg-success">Hazır</span>
+
+    {% elif k[6] == "Teslim Edildi" %}
+        <span class="badge bg-secondary">Teslim Edildi</span>
+
+    {% endif %}
+    <td>{{ k[7] }} ₺</td>
+</td>
+<td>
+
+<form action="/durum/{{ k[0] }}" method="POST" class="d-flex">
+
+<select name="durum" class="form-select form-select-sm me-2">
+
+<option {% if k[6]=="Beklemede" %}selected{% endif %}>
+Beklemede
+</option>
+
+<option {% if k[6]=="Tamirde" %}selected{% endif %}>
+Tamirde
+</option>
+
+<option {% if k[6]=="Hazır" %}selected{% endif %}>
+Hazır
+</option>
+
+<option {% if k[6]=="Teslim Edildi" %}selected{% endif %}>
+Teslim Edildi
+</option>
+
+</select>
+
+<button class="btn btn-success btn-sm">
+Kaydet
+</button>
+
+</form>
+
+</td>
+<td>
+<a href="/duzenle/{{ k[0] }}"
+class="btn btn-warning btn-sm">
+
+✏️ Düzenle
+
+</a>
+<a href="/sil/{{ k[0] }}"
+class="btn btn-danger btn-sm"
+onclick="return confirm('Bu kayıt silinsin mi?')">
+
+🗑 Sil
+
+</a>
+<a href="/whatsapp/{{ k[0] }}"
+class="btn btn-success btn-sm">
+
+💬 Mesaj Gönder
+
+</a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+<div class="text-end mt-4">
+
+<a href="/logout" class="btn btn-warning">
+
+🚪 Çıkış Yap
+
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>
