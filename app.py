@@ -33,7 +33,7 @@ Arıza: {ariza}
             server.send_message(msg)
 
     except Exception as e:
-        print("Mail gönderilemedi:", e)
+        print("Mail gönderilemedi:", repr(e))
 
 # -------------------------------
 # Veritabanını Oluştur
