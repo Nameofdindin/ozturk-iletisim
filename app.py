@@ -27,7 +27,7 @@ Arıza: {ariza}
         msg["From"] = gonderen
         msg["To"] = alici
 
-        with smtplib.SMTP("smtp.gmail.com", 587, timeout=10) as server:
+        with smtplib.SMTP("smtp-relay.brevo.com", 587, timeout=10) as server:
             server.starttls()
             server.login(gonderen, sifre)
             server.send_message(msg)
