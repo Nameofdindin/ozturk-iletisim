@@ -1,8 +1,35 @@
 from flask import Flask, render_template, request, redirect, session
 import sqlite3
-
+import os
+import smtplib
+from email.mime.text import MIMEText
 app = Flask(__name__)
 app.secret_key = "ozturkiletisim2026"
+def mail_gonder(ad, telefon, marka, model, ariza, ucret):
+    gonderen = os.environ.get("MAIL_USER")
+    sifre = os.environ.get("MAIL_PASSWORD")
+    alici = "hasozturk561@gmail.com"
+
+    mesaj = f"""
+Yeni servis kaydı oluşturuldu.
+
+Müşteri: {ad}
+Telefon: {telefon}
+Marka: {marka}
+Model: {model}
+Arıza: {ariza}
+Ücret: {ucret} TL
+"""
+
+    msg = MIMEText(mesaj, "plain", "utf-8")
+    msg["Subject"] = "Yeni Servis Kaydı"
+    msg["From"] = gonderen
+    msg["To"] = alici
+
+    with smtplib.SMTP("smtp.gmail.com", 587) as server:
+        server.starttls()
+        server.login(gonderen, sifre)
+        server.send_message(msg)
 
 
 # -------------------------------
@@ -69,8 +96,11 @@ VALUES (?,?,?,?,?,?,?)
     ucret
 ))
     
-
+    
     conn.commit()
+    
+    mail_gonder(ad, telefon, marka, model, ariza, ucret)
+
     conn.close()
 
     return redirect("/")
