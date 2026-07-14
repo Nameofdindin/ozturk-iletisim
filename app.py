@@ -6,11 +6,12 @@ from email.mime.text import MIMEText
 app = Flask(__name__)
 app.secret_key = "ozturkiletisim2026"
 def mail_gonder(ad, telefon, marka, model, ariza, ucret):
-    gonderen = os.environ.get("MAIL_USER")
-    sifre = os.environ.get("MAIL_PASSWORD")
-    alici = "hasozturk561@gmail.com"
+    try:
+        gonderen = os.environ.get("MAIL_USER")
+        sifre = os.environ.get("MAIL_PASSWORD")
+        alici = "hasozturk561@gmail.com"
 
-    mesaj = f"""
+        mesaj = f"""
 Yeni servis kaydı oluşturuldu.
 
 Müşteri: {ad}
@@ -21,16 +22,18 @@ Arıza: {ariza}
 Ücret: {ucret} TL
 """
 
-    msg = MIMEText(mesaj, "plain", "utf-8")
-    msg["Subject"] = "Yeni Servis Kaydı"
-    msg["From"] = gonderen
-    msg["To"] = alici
+        msg = MIMEText(mesaj, "plain", "utf-8")
+        msg["Subject"] = "Yeni Servis Kaydı"
+        msg["From"] = gonderen
+        msg["To"] = alici
 
-    with smtplib.SMTP("smtp.gmail.com", 587) as server:
-        server.starttls()
-        server.login(gonderen, sifre)
-        server.send_message(msg)
+        with smtplib.SMTP("smtp.gmail.com", 587, timeout=10) as server:
+            server.starttls()
+            server.login(gonderen, sifre)
+            server.send_message(msg)
 
+    except Exception as e:
+        print("Mail gönderilemedi:", e)
 
 # -------------------------------
 # Veritabanını Oluştur
@@ -98,7 +101,7 @@ VALUES (?,?,?,?,?,?,?)
     
     
     conn.commit()
-    
+
     mail_gonder(ad, telefon, marka, model, ariza, ucret)
 
     conn.close()
